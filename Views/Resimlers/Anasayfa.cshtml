@@ -1,0 +1,56 @@
+﻿
+@model List <Proje.Models.Resimler>
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Bilecik</h1>
+        <p class="lead">
+            &nbsp;&nbsp;&nbsp; Bilecik ili, Marmara Bölgesi'nin güney doğusunda; Marmara, Karadeniz, İç Anadolu ve Ege Bölgelerinin kesim noktaları üzerinde yer alır. İlin bilinen en eski isimleri arasında Agrilion ve Belekoma vardır.
+            Bilecik, Osmanlı İmparatorluğu' nun doğduğu topraklardadır. Sakarya ırmağının etrafında kurulan ve göletleri ve derelerinin zenginliği ile tanınan yöre antik çağlardan günümüze tarihin izlerini taşır.
+        </p>
+    </section>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div id="AnasayfaResimler" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#AnasayfaResimler" data-slide-to="0" class="active"></li>
+                    <li data-target="#AnasayfaResimler" data-slide-to="1"></li>
+                    <li data-target="#AnasayfaResimler" data-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <div class="item active">
+                                <img src="@Url.Content("~/Content/resimler/" + Model[i].Link)" alt="Bilecik">
+                            </div>
+                        }
+                        else { 
+                            <div class="item">
+                                <img src="@Url.Content("~/Content/resimler/"+Model[i].Link)" alt="Bilecik">
+                            </div>
+                        }
+                    }
+                </div>
+
+                <a class="left carousel-control" href="#AnasayfaResimler" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#AnasayfaResimler" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <h3 id="title">İletişim</h3>
+    <h5>Bilecik hakkinda detaylı bilgi için.</h5>
+    <address>
+        <strong>Mail:</strong>   <a href="mailto:22010903131@subu.edu.tr">22010903131@subu.edu.tr</a><br />
+    </address>
+</main>

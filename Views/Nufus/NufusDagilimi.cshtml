@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Bilecik İli Nüfus Dağılımı";
+}
+@model List <Proje.Models.Nufus>
+
+<main>
+    <h2>@ViewBag.Title</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Yıl</th>
+                <th>Bozüyük</th>
+                <th>Gölpazarı</th>
+                <th>İnhisar</th>
+                <th>Merkez</th>
+                <th>Osmaneli</th>
+                <th>Pazaryeri</th>
+                <th>Söğüt</th>
+                <th>Yenipazar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].Yil</td>
+                    <td>@Model[i].Bozuyuk</td>
+                    <td>@Model[i].Golpazari</td>
+                    <td>@Model[i].Inhisar</td>
+                    <td>@Model[i].Merkez</td>
+                    <td>@Model[i].Osmaneli</td>
+                    <td>@Model[i].Pazaryeri</td>
+                    <td>@Model[i].Sogut</td>
+                    <td>@Model[i].Yenipazar</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</main>
+
+

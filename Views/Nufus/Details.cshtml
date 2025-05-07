@@ -1,0 +1,90 @@
+﻿@model Proje.Models.Nufus
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nufus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bozuyuk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bozuyuk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Golpazari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Golpazari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inhisar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inhisar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Merkez)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merkez)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Osmaneli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Osmaneli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pazaryeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pazaryeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sogut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sogut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yenipazar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yenipazar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

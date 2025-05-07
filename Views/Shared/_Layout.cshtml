@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Bilecik</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/stillerim.css")">
+</head>
+<body class=" navbarbody">
+
+    <nav class="navbar custom-navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@Url.Action("Anasayfa","Resimlers")">Bilecik</a>
+            </div>
+            @if (Session["KullaniciId"] != null)
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(Proje.kaynak.lang.anasayfa, "Anasayfa", "Resimlers")</li>
+                    <li>@Html.ActionLink(Proje.kaynak.lang.nufus, "NufusDagilimi", "Nufus")</li>
+                    <li>@Html.ActionLink(Proje.kaynak.lang.ilceler, "Ilceler", "Ilcelers")</li>
+                    <li>@Html.ActionLink(Proje.kaynak.lang.turistikyer, "TuristikYerler", "TuristikYers")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["KullaniciEmail"] as string == "yasbor450@gmail.com")
+                    {
+                        <li><a href="@Url.Action("Index","Tables")"><span class="glyphicon glyphicon-list"></span> Yönetici İşlemleri</a></li>
+                        <li><a href="@Url.Action("Index","Resimlers")"><span class="glyphicon glyphicon-list"></span> Resim İşlemleri</a></li>
+                        <li><a href="@Url.Action("Index","Nufus")"><span class="glyphicon glyphicon-list"></span> Nüfus İşlemleri</a></li>
+                        <li><a href="@Url.Action("Index","Ilcelers")"><span class="glyphicon glyphicon-list"></span> İlçe İşlemleri</a></li>
+                        <li><a href="@Url.Action("Index","TuristikYers")"><span class="glyphicon glyphicon-list"></span> Turizm İşlemleri</a></li>
+                    }
+                    <li>@Html.ActionLink("Türkçe", "dilDegistir", "Home", new { lang = "tr", returnurl = Url.Action(ViewContext.RouteData.Values["action"].ToString()) }, null)</li>
+                    <li>@Html.ActionLink("İngilizce", "dilDegistir", "Home", new { lang = "en", returnurl = Url.Action(ViewContext.RouteData.Values["action"].ToString()) }, null)</li>
+                    <li><a class="nav-link btn btn-danger text-white" href="@Url.Action("Cikis", "Tables")">@Proje.kaynak.lang.cikis</a></li>
+                </ul>
+            }
+            else
+            {
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink(Proje.kaynak.lang.anasayfa, "Anasayfa", "Resimlers")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Türkçe", "dilDegistir", "Home", new { lang = "tr", returnurl = this.Request.RawUrl }, null)</li>
+                <li>@Html.ActionLink("İngilizce", "dilDegistir", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, null)</li>
+                <li>
+                    <a href="@Url.Action("Giris", "Tables")">
+                        <span class="glyphicon glyphicon-user"></span> @Proje.kaynak.lang.giris
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Create", "Tables")">
+                        <span class="glyphicon glyphicon-log-in"></span> @Proje.kaynak.lang.kayit
+                    </a>
+                </li>
+            </ul>
+            }
+        </div>
+    </nav>
+
+    <div class="container custom-margin">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

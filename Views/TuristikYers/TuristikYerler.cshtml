@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Turistik Yerler";
+}
+@model List<Proje.Models.TuristikYer>
+<main>
+    <h2>@ViewBag.Title</h2>
+    <p class="custom-font">Bilecik ili gezilecek Yerler:</p>
+    <ul class="custom-font">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <li><b>@Model[i].TuristikYer1</b>:@Model[i].Aciklama</li>
+        }
+    </ul>
+</main>
+

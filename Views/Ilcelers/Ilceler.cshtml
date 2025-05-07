@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "İlçeler";
+}
+@model List<Proje.Models.Ilceler>
+<main>
+    <h2>@ViewBag.Title</h2>
+    <table class="table table-bordered custom-table">
+        <thead class="custom-table-head">
+            <tr>
+                <th>Bilecik İlçeleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <th>@Model[i].Ilce</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
+

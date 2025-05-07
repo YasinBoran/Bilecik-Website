@@ -1,0 +1,51 @@
+﻿@model Proje.Models.Ilceler
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<script>
+    function kontrol() {
+        var ilce = document.getElementById("Ilce");
+        var hata = document.getElementById("Hata");
+        if (!ilce.value.trim()) {
+            hata.innerHTML = "İlçe alanına veri giriniz.";
+            hata.style.color = "red";
+            return false;
+        } else {
+            hata.innerHTML = "";
+            return true;
+        }
+    }
+</script>
+
+@using (Html.BeginForm("Edit", "Ilcelers", FormMethod.Post, new { onsubmit = "return kontrol()" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Ilceler</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ilce, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ilce, new { htmlAttributes = new { @class = "form-control", id = "Ilce"} })
+                <p id="Hata">&nbsp;</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,41 @@
+﻿@model Proje.Models.Table
+@{
+    ViewBag.Title = "Giris";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>@ViewBag.Title</h2>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Email)
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "E-posta adresinizi giriniz" })
+        </div>
+        <div class="col-md-2">
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Sifre)
+        </div>
+        <div class="col-md-3">
+            @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Şifrenizi giriniz" })
+        </div>
+        <div class="col-md-2">
+            @Html.ValidationMessageFor(m => m.Sifre)
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary custom-margin2">Giriş Yap</button>
+    if (ViewBag.Hata != null)
+    {
+        <p class="text-danger">@ViewBag.Hata</p>
+    }
+}
+
+
